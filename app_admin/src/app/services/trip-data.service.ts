@@ -1,10 +1,12 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable , Inject } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { Trip } from '../models/trip';
+import { BROWSER_STORAGE } from '../storage';
 import { User } from '../models/user';
 import { AuthResponse } from '../models/authresponse';
-import { BROWSER_STORAGE } from '../storage';
+
+
 
 @Injectable()
   export class TripDataService {
@@ -61,22 +63,21 @@ import { BROWSER_STORAGE } from '../storage';
     
     public login(user: User): Promise<AuthResponse> {
       return this.makeAuthApiCall('login', user);
-    }
-    
-    public register(user: User): Promise<AuthResponse> {
+   }
+ 
+   public register(user: User): Promise<AuthResponse> {
       return this.makeAuthApiCall('register', user);
-    }
-    
-    private makeAuthApiCall(urlPath: string, user: User): Promise<AuthResponse> {
-      const url: string = `${this.apiBaseUrl}/${urlPath}`;
-      return this.http
-        .post(url, user)
-        .toPromise()
-        .then(response => response.json() as AuthResponse)
-        .catch(this.handleError);
-    }
-   
-  }
+   }
+ 
+   private makeAuthApiCall(urlPath: string, user: User): Promise<AuthResponse> {
+     const url: string = `${this.apiBaseUrl}/${urlPath}`;
+     return this.http
+       .post(url, user)
+       .toPromise()
+       .then(response => response.json() as AuthResponse)
+       .catch(this.handleError);
+   }
+ }
 
 
   
