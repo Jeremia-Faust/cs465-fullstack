@@ -16,12 +16,15 @@ When testing that my SPA page was working, I used a few different techniques. Th
 There are currently four endpoints for this application 
 
 Method	Purpose	                       URL	                  Notes
+
 GET	   <Retrieve the list of trips>	   </api/trips>          <Returns all active trips>
+
 GET	   <Retrieve single trip>	         </api/trips/’code’>   <Returns single trip instance, identified by the trip ID or ‘code’ passed on the request URL>
+
 POST	 Post new user	                 </api/resiter>        <Create new user for application 
+
 POST	 Post user login	                /api/login	         <Login into application and return password token
 
-. 
 
 
 Reflection
